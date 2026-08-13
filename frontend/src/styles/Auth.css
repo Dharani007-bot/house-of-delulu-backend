@@ -1,0 +1,409 @@
+/* ─── ANIMATIONS ─────────────────────────────────────── */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+
+@keyframes checkPop {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shine {
+  0%   { left: -75%; }
+  100% { left: 125%; }
+}
+
+@keyframes underlineGrow {
+  from { width: 0; }
+  to   { width: 40px; }
+}
+
+@keyframes breatheIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes labelRise {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes softPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.35); }
+  50%      { box-shadow: 0 0 0 6px rgba(212, 175, 55, 0); }
+}
+
+@keyframes crownSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─── AUTH PAGE LAYOUT ───────────────────────────────── */
+.auth-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* ─── LEFT PANEL ─────────────────────────────────────── */
+.auth-left {
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  position: relative;
+  overflow: hidden;
+  animation: slideInLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.auth-left::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 50%, #d4af3722 0%, transparent 60%);
+}
+
+.auth-brand {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-brand h1 {
+  font-size: 52px;
+  letter-spacing: 8px;
+  color: #f7f2e8;
+  margin-bottom: 10px;
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.auth-brand > p {
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: #d4af37;
+  margin-bottom: 60px;
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+.auth-quote {
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  padding: 40px 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+.auth-quote h2 {
+  font-size: 22px;
+  color: #aaa;
+  line-height: 1.6;
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* ─── RIGHT PANEL ────────────────────────────────────── */
+.auth-right {
+  background: #f7f2e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-tag {
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: #d4af37;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.auth-box h2 {
+  font-size: 36px;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+  position: relative;
+  padding-bottom: 14px;
+}
+
+.auth-box h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: #d4af37;
+  animation: underlineGrow 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+}
+
+.auth-sub {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 35px;
+  letter-spacing: 1px;
+}
+
+.auth-sub a {
+  color: #111;
+  text-decoration: none;
+  border-bottom: 1px solid #111;
+  transition: color 0.3s;
+}
+
+.auth-sub a:hover {
+  color: #d4af37;
+  border-color: #d4af37;
+}
+
+/* ─── FORM ───────────────────────────────────────────── */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: breatheIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.auth-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeInUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.auth-group:nth-child(1) { animation-delay: 0.15s; }
+.auth-group:nth-child(2) { animation-delay: 0.25s; }
+.auth-group:nth-child(3) { animation-delay: 0.35s; }
+.auth-group:nth-child(4) { animation-delay: 0.45s; }
+.auth-group:nth-child(5) { animation-delay: 0.55s; }
+
+.auth-group label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #555;
+  animation: labelRise 0.4s ease both;
+}
+
+.auth-group input {
+  padding: 16px;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  background: white;
+  font-family: Georgia, serif;
+  outline: none;
+  transition: border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.auth-group input:focus {
+  border-color: #111;
+  box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.07);
+  transform: translateY(-1px);
+}
+
+.auth-group input.error {
+  border-color: #c0392b;
+  animation: shake 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.err-msg {
+  font-size: 12px;
+  color: #c0392b;
+  letter-spacing: 1px;
+  animation: fadeInDown 0.3s ease both;
+}
+
+/* ─── API ERROR BOX ──────────────────────────────────── */
+.api-err-box {
+  background: #fdf0f0;
+  border: 1px solid #f5c6cb;
+  border-left: 3px solid #c0392b;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #c0392b;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  animation: fadeInDown 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── AUTH BUTTON ────────────────────────────────────── */
+.auth-btn {
+  width: 100%;
+  padding: 18px;
+  background: #111;
+  color: #f7f2e8;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-family: Georgia, serif;
+  transition: all 0.3s;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+}
+
+.auth-btn:hover:not(:disabled)::before {
+  animation: shine 0.7s ease;
+}
+
+.auth-btn:hover:not(:disabled) {
+  background: #d4af37;
+  color: #111;
+}
+
+.auth-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.auth-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.forgot-link {
+  text-align: center;
+  font-size: 13px;
+}
+
+.forgot-link a {
+  color: #888;
+  text-decoration: none;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #ccc;
+}
+
+.forgot-link a:hover {
+  color: #111;
+}
+
+/* ─── REDIRECT MESSAGE ───────────────────────────────── */
+.redirect-msg {
+  background: #fffbf0;
+  border: 1px solid #d4af37;
+  border-left: 3px solid #d4af37;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #7a6520;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  animation: fadeInDown 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.auth-or {
+  text-align: center;
+  color: #aaa;
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin: 5px 0;
+}
+
+/* ─── OTP INPUT ──────────────────────────────────────── */
+.otp-input {
+  text-align: center;
+  font-size: 28px !important;
+  letter-spacing: 12px;
+  font-weight: bold;
+  padding: 20px !important;
+}
+
+.otp-input:focus {
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25);
+}
+
+/* ─── RESEND SECTION ─────────────────────────────────── */
+.resend-section {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.resend-timer {
+  font-size: 13px;
+  color: #888;
+  letter-spacing: 1px;
+}
+
+.resend-btn {
+  background: transparent;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  padding: 10px 24px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  transition: all 0.3s;
+  width: 100%;
+  animation: softPulse 2.2s ease-in-out infinite;
+}
+
+.resend-btn:hover {
+  animation-play-state: paused;
+}
+
+.resend-btn:hover {
+  background: #d4af37;
+  color: #111;
+}
+
+/* ─── SUCCESS MESSAGE BOX ────────────────────────────── */
+.success-msg-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-left: 3px solid #22c55e;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #166534;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  animation: checkPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,111 @@
+.success {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7f2e8;
+}
+
+.success-card {
+  background: white;
+  padding: 70px;
+  width: 580px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0,0,0,.08);
+  border-top: 4px solid #d4af37;
+}
+
+.check {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
+  background: #d4af37;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: white;
+}
+
+.success-card h1 {
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.order-id {
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #d4af37;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.success-card p {
+  font-size: 15px;
+  color: #555;
+  margin: 8px 0;
+  line-height: 1.7;
+}
+
+.success-whatsapp {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-left: 3px solid #22c55e;
+  padding: 14px;
+  margin: 25px 0;
+  border-radius: 4px;
+}
+
+.success-whatsapp p {
+  color: #166534;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.success-btn-primary {
+  width: 100%;
+  padding: 18px;
+  background: #111;
+  color: #f7f2e8;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-family: Georgia, serif;
+  transition: all 0.3s;
+}
+
+.success-btn-primary:hover {
+  background: #d4af37;
+  color: #111;
+}
+
+.success-btn-secondary {
+  width: 100%;
+  padding: 16px;
+  background: #25D366;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: Georgia, serif;
+  transition: all 0.3s;
+  border-radius: 4px;
+}
+
+.success-btn-secondary:hover {
+  background: #128C7E;
+}
