@@ -61,3 +61,4 @@ function NewsSidebar({ items = NEWS_ITEMS }) {
 }
 
 export default NewsSidebar;
+

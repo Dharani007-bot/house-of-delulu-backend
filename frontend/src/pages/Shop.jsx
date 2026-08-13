@@ -27,8 +27,8 @@ function Shop() {
 
   useEffect(() => {
     Promise.all([
-      fetch("http://127.0.0.1:8000/api/products/").then((r) => r.json()),
-      fetch("http://127.0.0.1:8000/api/categories/").then((r) => r.json()),
+      fetch(`${import.meta.env.VITE_API_URL}/api/products/`).then((r) => r.json()),
+      fetch(`${import.meta.env.VITE_API_URL}/api/categories/`).then((r) => r.json()),
     ]).then(([prods, cats]) => {
       setProducts(prods);
       setCategories(cats);
@@ -227,3 +227,4 @@ function Shop() {
 }
 
 export default Shop;
+

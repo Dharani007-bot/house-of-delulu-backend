@@ -46,15 +46,13 @@ function OrderSuccess() {
         💰 *Subtotal:* ₹${subtotal}
         ${discount > 0 ? `🎟️ *Coupon (${couponCode}):* − ₹${discount}\n` : ""}💵 *Total:* ₹${finalTotal}
         💳 *Status:* Pending
-        ✅ *Admin Panel:*
-        http://127.0.0.1:8000/admin/atix/order/
         Thank you! 🙏`
 );
 
     // Open WhatsApp in new tab, auto close after 3 seconds
     const waWindow = window.open(
       `https://wa.me/${OWNER_PHONE}?text=${msg}`,
-      "_blank",
+      `_blank",
       "width=600,height=400,noopener,noreferrer"
     );
 
@@ -94,3 +92,4 @@ function OrderSuccess() {
 }
 
 export default OrderSuccess;
+

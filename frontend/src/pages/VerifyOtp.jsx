@@ -46,7 +46,7 @@ function VerifyOtp() {
     setLoading(true);
     setApiError("");
     try {
-      const res  = await fetch("http://localhost:8000/api/auth/verify-otp/", {
+      const res  = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/verify-otp/`, {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify({ user_id: userId, otp }),
@@ -71,7 +71,7 @@ function VerifyOtp() {
     setApiError("");
     setSuccess("");
     try {
-      const res  = await fetch("http://localhost:8000/api/auth/resend-otp/", {
+      const res  = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/resend-otp/`, {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify({ user_id: userId }),
@@ -170,3 +170,4 @@ function VerifyOtp() {
 }
 
 export default VerifyOtp;
+

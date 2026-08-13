@@ -49,7 +49,7 @@ function Checkout() {
     setCouponError("");
     setCouponData(null);
     try {
-      const res  = await fetch("http://localhost:8000/api/coupon/apply/", {
+      const res  = await fetch(`${import.meta.env.VITE_API_URL}/api/coupon/apply/`, {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify({ code: couponCode, cart_total: subtotal }),
@@ -75,7 +75,7 @@ function Checkout() {
     if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return; }
     setLoading(true);
     try {
-      const res  = await fetch("http://localhost:8000/api/orders/", {
+      const res  = await fetch(`${import.meta.env.VITE_API_URL}/api/orders/`, {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -248,3 +248,4 @@ function Checkout() {
 }
 
 export default Checkout;
+

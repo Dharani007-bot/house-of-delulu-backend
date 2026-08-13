@@ -7,7 +7,7 @@ function DeptMegaMenu({ dept, active }) {
 
   useEffect(() => {
     if (loaded) return; // fetch once, reuse for both hover states
-    fetch("http://127.0.0.1:8000/api/categories/")
+    fetch(`${import.meta.env.VITE_API_URL}/api/categories/`)
       .then((r) => r.json())
       .then((data) => {
         setCategories(data);
@@ -39,3 +39,4 @@ function DeptMegaMenu({ dept, active }) {
 }
 
 export default DeptMegaMenu;
+

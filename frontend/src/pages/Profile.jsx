@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../styles/Profile.css";
 
-const BASE = "http://localhost:8000";
+const BASE = `${import.meta.env.VITE_API_URL}`;
 const ORDERS_PER_PAGE = 5;
 
 const STATUS_STEPS = ["pending", "confirmed", "shipped", "delivered"];
@@ -585,3 +585,4 @@ function Profile() {
 }
 
 export default Profile;
+

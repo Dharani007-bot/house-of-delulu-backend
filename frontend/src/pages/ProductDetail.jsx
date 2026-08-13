@@ -6,7 +6,7 @@ import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 import useDept from "../hooks/useDept";
 
-const BASE = "http://localhost:8000";
+const BASE = `${import.meta.env.VITE_API_URL}`;
 
 function StarRating({ value, onChange, readOnly = false }) {
   const [hovered, setHovered] = useState(0);
@@ -316,3 +316,4 @@ function ProductDetail() {
 }
 
 export default ProductDetail;
+
