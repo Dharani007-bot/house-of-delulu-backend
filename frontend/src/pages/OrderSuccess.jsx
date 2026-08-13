@@ -27,36 +27,31 @@ function OrderSuccess() {
         ).join("\n")
       : "  • (see admin panel)";
 
-    const orderId     = location.state?.orderId     || "N/A";
-    const cartItems    = location.state?.cartItems    || [];
-    const discount     = location.state?.discount     || 0;
-    const couponCode   = location.state?.couponCode   || "";
-    const finalTotal   = location.state?.total        ?? cartItems.reduce((s,i)=>s+i.price*i.quantity,0);
-    // in sendWhatsApp():
-    const subtotal = cartItems.reduce((s, i) => s + i.price * i.quantity, 0);
+    const discount   = location.state?.discount     || 0;
+    const couponCode = location.state?.couponCode   || "";
+    const finalTotal = location.state?.total        ?? cartItems.reduce((s,i)=>s+i.price*i.quantity,0);
+    const subtotal    = cartItems.reduce((s, i) => s + i.price * i.quantity, 0);
 
     const msg = encodeURIComponent(
-        `🛍️ *NEW ORDER — HOUSE OF DELULU*
-        📦 *Order ID:* #${orderId}
-        👤 *Customer:* ${user?.username || "Guest"}
-        📧 *Email:* ${user?.email || "N/A"}
-        📱 *Phone:* ${user?.phone || "N/A"}
-        *Items Ordered:*
-        ${itemLines}
-        💰 *Subtotal:* ₹${subtotal}
-        ${discount > 0 ? `🎟️ *Coupon (${couponCode}):* − ₹${discount}\n` : ""}💵 *Total:* ₹${finalTotal}
-        💳 *Status:* Pending
-        Thank you! 🙏`
-);
+      `🛍️ *NEW ORDER — HOUSE OF DELULU*
+📦 *Order ID:* #${orderId}
+👤 *Customer:* ${user?.username || "Guest"}
+📧 *Email:* ${user?.email || "N/A"}
+📱 *Phone:* ${user?.phone || "N/A"}
+*Items Ordered:*
+${itemLines}
+💰 *Subtotal:* ₹${subtotal}
+${discount > 0 ? `🎟️ *Coupon (${couponCode}):* − ₹${discount}\n` : ""}💵 *Total:* ₹${finalTotal}
+💳 *Status:* Pending
+Thank you! 🙏`
+    );
 
-    // Open WhatsApp in new tab, auto close after 3 seconds
     const waWindow = window.open(
       `https://wa.me/${OWNER_PHONE}?text=${msg}`,
-      `_blank",
+      "_blank",
       "width=600,height=400,noopener,noreferrer"
     );
 
-    // Try to close after 3 seconds (works if popup not blocked)
     if (waWindow) {
       setTimeout(() => {
         try { waWindow.close(); } catch (e) {}
@@ -92,4 +87,3 @@ function OrderSuccess() {
 }
 
 export default OrderSuccess;
-
