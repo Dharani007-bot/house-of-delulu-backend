@@ -129,18 +129,20 @@ def register(request):
         is_active      = True,
     )
 
+    email_sent = True
     try:
         send_otp_email(email, otp, username)
     except Exception as e:
+        email_sent = False
         logger.error(f"OTP email failed for {email}: {str(e)}")
-        user.delete()
-        return Response({"error": "Failed to send verification email. Try again."}, status=500)
 
     logger.info(f"New user registered: {username}")
     return Response({
-        "message": f"OTP sent to {email}. Check your inbox!",
+        "message": f"OTP sent to {email}. Check your inbox!" if email_sent
+        else "Account created. Email delivery delayed.",
         "user_id": user.id,
-        "email":   user.email,
+        "email": user.email,
+        "debug_otp": None if email_sent else otp,  # 👈 only sent when email fails
     }, status=201)
 
 

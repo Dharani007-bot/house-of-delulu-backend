@@ -50,6 +50,9 @@ function Register() {
         }),
       });
       const data = await res.json();
+       if (data.debug_otp) {
+        console.log(`🔑 DEV OTP (email failed): ${data.debug_otp}`);
+      }
       if (res.ok) {
         // Go to OTP verification
         navigate("/verify-otp", {
