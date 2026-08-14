@@ -136,6 +136,7 @@ EMAIL_HOST_USER     = os.environ.get("dharaniml2005@gmail.com", "")
 EMAIL_HOST_PASSWORD = os.environ.get("sfjp wega swlp xtmo", "")
 DEFAULT_FROM_EMAIL  = f"HOUSE OF DELULU <{EMAIL_HOST_USER}>"
 OWNER_EMAIL         = os.environ.get("dharaniml2005@gmail.com", EMAIL_HOST_USER)
+EMAIL_TIMEOUT = 10  
 
 # ── SECURITY HEADERS (active in production) ────────────
 if not DEBUG:
